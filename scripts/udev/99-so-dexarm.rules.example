@@ -1,0 +1,30 @@
+# SO-DexARM stable serial-port names (template).
+#
+# Replace every <...> value with the USB serial number for that physical device before installing.
+# Keep the symlink names unchanged: r always means physical RIGHT and l always means physical LEFT.
+#
+# Inspect an adapter (replace ttyACM0 with the detected port):
+#   udevadm info --query=property --name=/dev/ttyACM0 | grep -E 'ID_VENDOR_ID|ID_MODEL_ID|ID_SERIAL_SHORT'
+#
+# Install the completed local copy:
+#   sudo cp 99-so-dexarm.rules /etc/udev/rules.d/99-so-dexarm.rules
+#   sudo udevadm control --reload-rules
+#   sudo udevadm trigger
+#
+# Verify:
+#   ls -l /dev/ttyso101_amazinghand_*
+#
+# For a CH343 adapter the vendor/product pair is normally 1a86:55d3. Confirm every value from the
+# connected device instead of assuming that all four adapters are the same model.
+
+# Physical RIGHT SO-101 arm
+SUBSYSTEM=="tty", ATTRS{idVendor}=="<RIGHT_ARM_USB_VENDOR_ID>", ATTRS{idProduct}=="<RIGHT_ARM_USB_PRODUCT_ID>", ATTRS{serial}=="<RIGHT_ARM_USB_SERIAL>", SYMLINK+="ttyso101_amazinghand_r_arm"
+
+# Physical LEFT SO-101 arm
+SUBSYSTEM=="tty", ATTRS{idVendor}=="<LEFT_ARM_USB_VENDOR_ID>", ATTRS{idProduct}=="<LEFT_ARM_USB_PRODUCT_ID>", ATTRS{serial}=="<LEFT_ARM_USB_SERIAL>", SYMLINK+="ttyso101_amazinghand_l_arm"
+
+# Physical RIGHT AmazingHand
+SUBSYSTEM=="tty", ATTRS{idVendor}=="<RIGHT_HAND_USB_VENDOR_ID>", ATTRS{idProduct}=="<RIGHT_HAND_USB_PRODUCT_ID>", ATTRS{serial}=="<RIGHT_HAND_USB_SERIAL>", SYMLINK+="ttyso101_amazinghand_r_hand"
+
+# Physical LEFT AmazingHand
+SUBSYSTEM=="tty", ATTRS{idVendor}=="<LEFT_HAND_USB_VENDOR_ID>", ATTRS{idProduct}=="<LEFT_HAND_USB_PRODUCT_ID>", ATTRS{serial}=="<LEFT_HAND_USB_SERIAL>", SYMLINK+="ttyso101_amazinghand_l_hand"

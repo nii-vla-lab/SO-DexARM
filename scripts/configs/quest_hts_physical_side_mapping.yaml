@@ -1,0 +1,7 @@
+version: 1
+canonical_convention:
+  right: physical human RIGHT hand controls physical RIGHT robot
+  left: physical human LEFT hand controls physical LEFT robot
+transport_mapping:
+  physical_right_raw_label: right
+  physical_left_raw_label: left

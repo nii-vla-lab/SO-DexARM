@@ -1,0 +1,66 @@
+version: 1
+preset: planar_ik_record_v1
+sides:
+  right:
+    arm_id: right
+    action_units: lerobot_calibrated
+    arm_action_units: range_m100_100
+    motor_ids:
+      shoulder_pan: 1
+      shoulder_lift: 2
+      elbow_flex: 3
+      wrist_flex: 4
+      wrist_roll: 5
+    controlled_joints:
+    - r_shoulder_lift.pos
+    - r_elbow_flex.pos
+    fixed_joints:
+      r_shoulder_pan.pos:
+        source: start_pose
+      r_wrist_flex.pos:
+        source: start_pose
+      r_wrist_roll.pos:
+        source: start_pose
+    full_calibration_limits:
+      r_shoulder_pan.pos: &id001
+        min: -100.0
+        max: 100.0
+      r_shoulder_lift.pos: &id002
+        min: -100.0
+        max: 100.0
+      r_elbow_flex.pos: &id003
+        min: -100.0
+        max: 100.0
+      r_wrist_flex.pos: &id004
+        min: -100.0
+        max: 100.0
+      r_wrist_roll.pos: &id005
+        min: -100.0
+        max: 100.0
+    task_limits:
+      r_shoulder_pan.pos: *id001
+      r_shoulder_lift.pos: *id002
+      r_elbow_flex.pos: *id003
+      r_wrist_flex.pos: *id004
+      r_wrist_roll.pos: *id005
+    joint_limits:
+      r_shoulder_pan.pos: *id001
+      r_shoulder_lift.pos: *id002
+      r_elbow_flex.pos: *id003
+      r_wrist_flex.pos: *id004
+      r_wrist_roll.pos: *id005
+    all_arm_joints:
+    - r_shoulder_pan.pos
+    - r_shoulder_lift.pos
+    - r_elbow_flex.pos
+    - r_wrist_flex.pos
+    - r_wrist_roll.pos
+    planar_ik:
+      l1: 0.1159
+      l2: 0.135
+      human_axis_map:
+        robot_x_from: wrist_forward
+        robot_y_from: wrist_up
+      scale_x: 0.05
+      scale_y: 0.05
+      workspace_margin_m: 0.01

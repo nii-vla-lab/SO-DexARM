@@ -1,0 +1,18 @@
+# Legacy single-side calibration schema. Prefer the dual-arm calibration commands documented in
+# quest_hts_dual_arm_hand_calibration.example.yaml for SO-DexARM.
+version: 1
+side: "<right|left>"
+created_at: "<GENERATED_TIMESTAMP>"
+human_poses:
+  open:
+    features: "<CAPTURED_HUMAN_HAND_FEATURES>"
+  half:
+    features: "<CAPTURED_HUMAN_HAND_FEATURES>"
+  closed:
+    features: "<CAPTURED_HUMAN_HAND_FEATURES>"
+robot:
+  open_raw_positions: "<CAPTURED_OPEN_MOTOR_POSITIONS>"
+  closed_raw_positions: "<CAPTURED_CLOSED_MOTOR_POSITIONS>"
+  safe_min_raw_positions: "<CALCULATED_SAFE_MINIMA>"
+  safe_max_raw_positions: "<CALCULATED_SAFE_MAXIMA>"
+  direction: "<CALCULATED_MOTOR_DIRECTIONS>"

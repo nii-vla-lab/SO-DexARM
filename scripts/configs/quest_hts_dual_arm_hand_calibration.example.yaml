@@ -1,0 +1,60 @@
+# Reference schema only. Generate the runtime file with:
+#   lerobot-so-dexarm calibrate-hand --side right --all-poses --from-hardware
+#   lerobot-so-dexarm calibrate-hand --side left  --all-poses --from-hardware
+# The generated file is stored at .cache/so_dexarm/quest_hts_dual_arm_hand_calibration.yaml.
+version: 2
+created_at: "<GENERATED_TIMESTAMP>"
+updated_at: "<GENERATED_TIMESTAMP>"
+feature_mode: curl
+right:
+  feature_mode: curl
+  human:
+    open:
+      features: &human_features
+        thumb: "<CAPTURED_HUMAN_FEATURE>"
+        index: "<CAPTURED_HUMAN_FEATURE>"
+        middle: "<CAPTURED_HUMAN_FEATURE>"
+        ring: "<CAPTURED_HUMAN_FEATURE>"
+    mid:
+      features: *human_features
+    fist:
+      features: *human_features
+  robot:
+    open:
+      positions: &right_robot_positions
+        r_finger1_motor1.pos: "<CAPTURED_ROBOT_POSITION>"
+        r_finger1_motor2.pos: "<CAPTURED_ROBOT_POSITION>"
+        r_finger2_motor1.pos: "<CAPTURED_ROBOT_POSITION>"
+        r_finger2_motor2.pos: "<CAPTURED_ROBOT_POSITION>"
+        r_finger3_motor1.pos: "<CAPTURED_ROBOT_POSITION>"
+        r_finger3_motor2.pos: "<CAPTURED_ROBOT_POSITION>"
+        r_finger4_motor1.pos: "<CAPTURED_ROBOT_POSITION>"
+        r_finger4_motor2.pos: "<CAPTURED_ROBOT_POSITION>"
+    mid:
+      positions: *right_robot_positions
+    fist:
+      positions: *right_robot_positions
+left:
+  feature_mode: curl
+  human:
+    open:
+      features: *human_features
+    mid:
+      features: *human_features
+    fist:
+      features: *human_features
+  robot:
+    open:
+      positions: &left_robot_positions
+        l_finger1_motor1.pos: "<CAPTURED_ROBOT_POSITION>"
+        l_finger1_motor2.pos: "<CAPTURED_ROBOT_POSITION>"
+        l_finger2_motor1.pos: "<CAPTURED_ROBOT_POSITION>"
+        l_finger2_motor2.pos: "<CAPTURED_ROBOT_POSITION>"
+        l_finger3_motor1.pos: "<CAPTURED_ROBOT_POSITION>"
+        l_finger3_motor2.pos: "<CAPTURED_ROBOT_POSITION>"
+        l_finger4_motor1.pos: "<CAPTURED_ROBOT_POSITION>"
+        l_finger4_motor2.pos: "<CAPTURED_ROBOT_POSITION>"
+    mid:
+      positions: *left_robot_positions
+    fist:
+      positions: *left_robot_positions

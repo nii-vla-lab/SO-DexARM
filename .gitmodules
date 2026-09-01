@@ -1,0 +1,3 @@
+[submodule "scripts/hand-tracking-streamer"]
+	path = scripts/hand-tracking-streamer
+	url = https://github.com/wengmister/hand-tracking-streamer.git

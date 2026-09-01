@@ -1,0 +1,13 @@
+# Copy to .cache/so_dexarm/quest_hts_<side>_amazinghand_tcp.yaml and replace every placeholder
+# with measurements for the installed wrist adapter and AmazingHand.
+version: 1
+side: "<right|left>"
+ee_frame: wrist_roll_flange
+tool_name: amazinghand
+tcp_offset:
+  x: "<TCP_X_METERS>"
+  y: "<TCP_Y_METERS>"
+  z: "<TCP_Z_METERS>"
+  roll: "<TCP_ROLL_RADIANS>"
+  pitch: "<TCP_PITCH_RADIANS>"
+  yaw: "<TCP_YAW_RADIANS>"

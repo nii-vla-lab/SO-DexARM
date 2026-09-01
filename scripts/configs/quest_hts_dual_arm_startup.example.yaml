@@ -1,0 +1,20 @@
+# Reference schema only. Generate the runtime file with:
+#   lerobot-so-dexarm capture-startup --side both --from-hardware
+# The generated file is stored at .cache/so_dexarm/quest_hts_dual_arm_startup.yaml.
+version: 1
+created_at: "<GENERATED_TIMESTAMP>"
+updated_at: "<GENERATED_TIMESTAMP>"
+right:
+  arm_positions:
+    shoulder_pan.pos: "<CAPTURED_RIGHT_POSITION>"
+    shoulder_lift.pos: "<CAPTURED_RIGHT_POSITION>"
+    elbow_flex.pos: "<CAPTURED_RIGHT_POSITION>"
+    wrist_flex.pos: "<CAPTURED_RIGHT_POSITION>"
+    wrist_roll.pos: "<CAPTURED_RIGHT_POSITION>"
+left:
+  arm_positions:
+    shoulder_pan.pos: "<CAPTURED_LEFT_POSITION>"
+    shoulder_lift.pos: "<CAPTURED_LEFT_POSITION>"
+    elbow_flex.pos: "<CAPTURED_LEFT_POSITION>"
+    wrist_flex.pos: "<CAPTURED_LEFT_POSITION>"
+    wrist_roll.pos: "<CAPTURED_LEFT_POSITION>"
