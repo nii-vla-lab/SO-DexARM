@@ -70,12 +70,12 @@ SO-ARM101同様に、基本的な組み立て手順は公式の[AmazingHand Asse
 
 実機とポート名の構成は以下のようにしてください。
 
-| 実機 | ポート名 |
-| --- | --- |
-| Right SO-ARM101 | `/dev/ttyso101_amazinghand_r_arm` |
-| Left SO-ARM101 | `/dev/ttyso101_amazinghand_l_arm` |
+| 実機              | ポート名                           |
+| ----------------- | ---------------------------------- |
+| Right SO-ARM101   | `/dev/ttyso101_amazinghand_r_arm`  |
+| Left SO-ARM101    | `/dev/ttyso101_amazinghand_l_arm`  |
 | Right AmazingHand | `/dev/ttyso101_amazinghand_r_hand` |
-| Left AmazingHand | `/dev/ttyso101_amazinghand_l_hand` |
+| Left AmazingHand  | `/dev/ttyso101_amazinghand_l_hand` |
 
 ### 4. ポートの固定
 
@@ -110,14 +110,14 @@ sudo udevadm trigger
 左右のアームのモーターIDを割り当てるために、以下のコマンドを実行してください。
 
 ```bash
-./scripts/setup_motors.sh right
-./scripts/setup_motors.sh left
+bash ./scripts/setup_motors.sh right
+bash ./scripts/setup_motors.sh left
 ```
 
 デフォルトでは、モーターIDを1~5に割り当てるようになってますが、モーターIDを独自で割り当てたい場合はCLIオプションを追加して、以下のコマンドを実行してください。
 
 ```bash
-./scripts/setup_motors.sh right \
+bash ./scripts/setup_motors.sh right \
   --right-arm-port /dev/ttyACM0 \
   --right-arm-ids 1,2,3,4,5
 ```
@@ -188,7 +188,7 @@ Hand side: Both Hands
 テレオペするために以下のコマンドを実行してください。
 
 ```bash
-./scripts/teleop.sh
+bash ./scripts/teleop.sh
 ```
 
 このシステムのアーム制御は、`shoulder_pan`、`shoulder_lift`、`elbow_flex`および`wrist_flex`を使用する拘束付き平面IK、`wrist_roll`は遠隔操作開始時の角度に固定されるようになっています。
@@ -218,7 +218,7 @@ export CAMERAS='{cam_front: {type: intelrealsense, serial_number_or_name: <CAMER
 NUM_EPISODES=50 \
 EPISODE_TIME_S=30 \
 RESET_TIME_S=5 \
-./scripts/record.sh '<HUGGINGFACE_USER>/<DATASET_NAME>' --push-to-hub
+bash ./scripts/record.sh '<HUGGINGFACE_USER>/<DATASET_NAME>' --push-to-hub
 ```
 
 #### 9.1 データセットの編集
@@ -226,7 +226,7 @@ RESET_TIME_S=5 \
 失敗したエピソードを削除して別データセットへ保存する場合は以下のコマンドを実行してください。
 
 ```bash
-./scripts/edit.sh \
+bash ./scripts/edit.sh \
   --repo_id '<HUGGINGFACE_USER>/<DATASET_NAME>' \
   --new_repo_id '<HUGGINGFACE_USER>/<FILTERED_DATASET_NAME>' \
   --operation.type delete_episodes \
@@ -241,7 +241,7 @@ RESET_TIME_S=5 \
 POLICY_DEVICE=cuda \
 STEPS=100000 \
 BATCH_SIZE=16 \
-./scripts/train_act.sh '<HUGGINGFACE_USER>/<DATASET_NAME>'
+bash ./scripts/train_act.sh '<HUGGINGFACE_USER>/<DATASET_NAME>'
 ```
 
 #### 10.2 SmolVLA
@@ -250,7 +250,7 @@ BATCH_SIZE=16 \
 POLICY_DEVICE=cuda \
 STEPS=20000 \
 BATCH_SIZE=8 \
-./scripts/train_smolvla.sh '<HUGGINGFACE_USER>/<DATASET_NAME>'
+bash ./scripts/train_smolvla.sh '<HUGGINGFACE_USER>/<DATASET_NAME>'
 ```
 
 ### 11. 実機推論
@@ -264,7 +264,7 @@ export CAMERAS='{cam_front: {type: intelrealsense, serial_number_or_name: <CAMER
 #### 11.1 ACT
 
 ```bash
-./scripts/eval_act.sh \
+bash ./scripts/eval_act.sh \
   'outputs/train/so-dexarm-act-<DATASET_NAME>/checkpoints/last/pretrained_model'
 ```
 
@@ -274,7 +274,7 @@ SmolVLAでは、データ収集時と同じタスク文に書き換えてくだ�
 
 ```bash
 TASK='Fold the towel.' \
-./scripts/eval_smolvla.sh \
+bash ./scripts/eval_smolvla.sh \
   'outputs/train/so-dexarm-smolvla-<DATASET_NAME>/checkpoints/last/pretrained_model'
 ```
 
@@ -283,7 +283,7 @@ TASK='Fold the towel.' \
 ```bash
 EVAL_REPO_ID=local/eval_towel \
 NUM_EPISODES=5 \
-./scripts/eval_act.sh '<PRETRAINED_POLICY_PATH>'
+bash ./scripts/eval_act.sh '<PRETRAINED_POLICY_PATH>'
 ```
 
 ## Upstream projects
