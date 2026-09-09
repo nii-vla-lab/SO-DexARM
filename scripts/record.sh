@@ -26,7 +26,7 @@ RESET_TIME_S=${RESET_TIME_S:-5}
 FPS=${FPS:-30}
 
 cd "$REPO_ROOT"
-exec "$PYTHON_BIN" -m lerobot.scripts.lerobot_so_dexarm record \
+exec "$PYTHON_BIN" -m sodexarm.cli.main record \
     --repo-id "$DATASET_REPO_ID" \
     --single-task "$TASK" \
     --cameras "$CAMERAS" \

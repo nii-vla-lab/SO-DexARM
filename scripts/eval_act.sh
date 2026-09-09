@@ -25,7 +25,7 @@ FPS=${FPS:-30}
 MAX_RELATIVE_TARGET=${MAX_RELATIVE_TARGET:-2.0}
 
 cd "$REPO_ROOT"
-exec "$PYTHON_BIN" -m lerobot.scripts.lerobot_so_dexarm eval \
+exec "$PYTHON_BIN" -m sodexarm.cli.main eval \
     --pretrained-policy-path "$POLICY_PATH" \
     --repo-id "$EVAL_REPO_ID" \
     --task "$TASK" \

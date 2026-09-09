@@ -9,7 +9,7 @@ SIDES=${SIDES:-both}
 TELEOP_MODE=${TELEOP_MODE:-arm-and-hand}
 
 cd "$REPO_ROOT"
-exec "$PYTHON_BIN" -m lerobot.scripts.lerobot_so_dexarm teleop \
+exec "$PYTHON_BIN" -m sodexarm.cli.main teleop \
     --fps "$FPS" \
     --sides "$SIDES" \
     --teleop-mode "$TELEOP_MODE" \

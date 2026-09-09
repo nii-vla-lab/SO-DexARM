@@ -14,4 +14,4 @@ fi
 SIDE=$1
 shift
 cd "$REPO_ROOT"
-exec "$PYTHON_BIN" -m lerobot.scripts.lerobot_so_dexarm setup-motors --side "$SIDE" "$@"
+exec "$PYTHON_BIN" -m sodexarm.cli.main setup-motors --side "$SIDE" "$@"
