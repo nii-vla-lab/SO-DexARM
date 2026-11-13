@@ -4,6 +4,8 @@
 
 SO-DexARMは、Meta Quest 3Sによるハンドトラッキングを用いて、AmazingHand + SO-ARM101から構成されるDual-Armの遠隔操作、データ収集、学習、推論を行うための統合システムです。このリポジトリでは、一連の処理をHugging Face LeRobot上に実装しています。
 
+![SO-DexARMの概要](figs/overview.png)
+
 ## SO-DexARMの手順書
 
 以下では、SO-DexARMの組み立て、環境構築、キャリブレーション、遠隔操作、データ収集、学習および推論までの手順を説明します。

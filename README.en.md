@@ -4,6 +4,8 @@
 
 SO-DexARM is an integrated system for teleoperation, data collection, training, and inference of a dual-arm robot built from AmazingHand + SO-ARM101, using hand tracking on Meta Quest 3S. This repository implements the entire pipeline on top of Hugging Face LeRobot.
 
+![SO-DexARM overview](figs/overview.png)
+
 ## SO-DexARM Guide
 
 This guide walks through assembling SO-DexARM, setting up the environment, calibration, teleoperation, data collection, training, and inference.
