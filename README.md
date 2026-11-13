@@ -1,5 +1,7 @@
 # SO-DexARM
 
+**日本語** | [English](README.en.md)
+
 SO-DexARMは、Meta Quest 3Sによるハンドトラッキングを用いて、AmazingHand + SO-ARM101から構成されるDual-Armの遠隔操作、データ収集、学習、推論を行うための統合システムです。このリポジトリでは、一連の処理をHugging Face LeRobot上に実装しています。
 
 ## SO-DexARMの手順書
@@ -292,3 +294,20 @@ bash ./scripts/eval_act.sh '<PRETRAINED_POLICY_PATH>'
 - [TheRobotStudio SO-ARM100/SO-ARM101](https://github.com/TheRobotStudio/SO-ARM100)
 - [Pollen Robotics AmazingHand](https://github.com/pollen-robotics/AmazingHand)
 - [Hand Tracking Streamer](https://github.com/wengmister/hand-tracking-streamer)
+
+## 引用
+
+SO-DexARMを研究で使用する場合は、以下の論文を引用してください。
+
+佐藤雅紘, 三好遼, 栗田修平. VRテレオペレーションを用いた器用な操作データ収集と既存模倣学習の性能評価. 日本ロボット学会第44回学術講演会予稿集, 1G3-02, 2026.
+
+```bibtex
+@inproceedings{sato2026sodexarm,
+  author    = {佐藤, 雅紘 and 三好, 遼 and 栗田, 修平},
+  title     = {{VR}テレオペレーションを用いた器用な操作データ収集と既存模倣学習の性能評価},
+  booktitle = {日本ロボット学会第44回学術講演会予稿集},
+  note      = {1G3-02},
+  year      = {2026},
+  month     = sep,
+}
+```
